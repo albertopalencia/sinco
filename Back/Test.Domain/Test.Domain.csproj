@@ -9,9 +9,4 @@
     <ProjectReference Include="..\Test.Common\Test.Common.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTO\Asignatura\" />
-    <Folder Include="DTO\Profesor\" />
-  </ItemGroup>
-
 </Project>

@@ -11,7 +11,7 @@ namespace Test.Api.Controllers
 	/// <summary>
 	/// 
 	/// </summary>
-	[Route("api/[controller]")]
+	[Route("api/alumno")]
 	[ApiController]
 	public class AlumnoController :   ControllerBase
 	{
