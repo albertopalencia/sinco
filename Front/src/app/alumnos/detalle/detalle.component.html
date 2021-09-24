@@ -13,11 +13,11 @@
             <div class="row">
               <div class="col-sm">
                 <ul *ngIf="alumno" class="list-group text-dark mb-3">
-                  <li class="list-group-item bg-info text-white">{{alumno.nombre}}</li>
-                  <li class="list-group-item">{{alumno.identificacion}}</li>
-                  <li class="list-group-item">{{alumno.edad}}</li>
-                  <li class="list-group-item">{{alumno.direccion}}</li>
-                  <li class="list-group-item">{{alumno.telefono}}</li>
+                  <li class="list-group-item bg-info text-white">{{alumno.nombre}} {{alumno.apellido}}</li>
+                  <li class="list-group-item">Identificación: {{alumno.identificacion}}</li>
+                  <li class="list-group-item">Edad: {{alumno.edad}}</li>
+                  <li class="list-group-item">Dirección: {{alumno.direccion}}</li>
+                  <li class="list-group-item">Telefono: {{alumno.telefono}}</li>
                 </ul>
               </div>
             </div>

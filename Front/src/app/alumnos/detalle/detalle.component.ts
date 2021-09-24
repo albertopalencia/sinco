@@ -1,6 +1,6 @@
-import { ModalService } from '../../models/modal.service';
+import { ModalService } from '../../services/modal.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { Alumno } from '../alumno';
+import { Alumno } from '../../models/alumno.model';
 
 
 @Component({

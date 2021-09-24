@@ -1,12 +1,11 @@
-import { Region } from './region';
 import { Injectable } from '@angular/core';
-import { Alumno } from './alumno';
+import { Alumno } from '../models/alumno.model';
 import { HttpClient  } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { URL_BACKEND } from '../config/config';
-import { Respuesta } from '../models/respuesta';
+import { Respuesta } from '../models/respuesta.model';
 
 
 @Injectable()
@@ -16,10 +15,6 @@ export class AlumnoService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-
-  getRegiones(): Observable<Region[]> {
-    return this.http.get<Region[]>(this.urlEndPoint + '/regiones');
-  }
 
   getAlumnos(): Observable<any> {
     return this.http.get(`${this.urlEndPoint}/listar`);

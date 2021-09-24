@@ -1,3 +1,5 @@
+import { AsignaturaService } from './services/asignatura.service';
+import { ProfesorService } from './services/profesor.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -5,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AlumnosComponent } from './alumnos/alumnos.component';
 import { FormComponent } from './alumnos/form.component';
-import { AlumnoService } from './alumnos/alumno.service';
+import { AlumnoService } from './services/alumno.service';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +22,9 @@ import { DetalleComponent } from './alumnos/detalle/detalle.component';
 import { ProfesoresComponent } from './profesores/profesores.component';
 import { DetalleProfesorComponent } from './profesores/detalle-profesor/detalle-profesor.component';
 import { FormProfesorComponent } from './profesores/form-profesor/form-profesor.component';
+import { AsignaturasComponent } from './asignaturas/asignaturas.component';
+import { FormAsignaturaComponent } from './asignaturas/form-asignatura/form-asignatura.component';
+import { AsignaturaAlumnoComponent } from './asignatura-alumno/asignatura-alumno.component';
 
 
 registerLocaleData(localeES, 'es');
@@ -32,6 +37,9 @@ const routes: Routes = [
   { path: 'profesores', component: ProfesoresComponent },
   { path: 'profesores/form', component: FormProfesorComponent},
   { path: 'profesores/form/:id', component: FormProfesorComponent},
+  { path: 'asignaturas', component: AsignaturasComponent },
+  { path: 'asignaturas/form', component: FormAsignaturaComponent},
+  { path: 'asignaturas/form/:id', component: FormAsignaturaComponent},
 ];
 
 @NgModule({
@@ -44,7 +52,10 @@ const routes: Routes = [
     DetalleComponent,
     ProfesoresComponent,
     DetalleProfesorComponent,
-    FormProfesorComponent
+    FormProfesorComponent,
+    AsignaturasComponent,
+    FormAsignaturaComponent,
+    AsignaturaAlumnoComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +66,10 @@ const routes: Routes = [
     BrowserAnimationsModule, MatDatepickerModule, MatMomentDateModule
   ],
   providers: [
-    AlumnoService, { provide: LOCALE_ID, useValue: 'es' }
+    AlumnoService,
+    ProfesorService,
+    AsignaturaService,
+    { provide: LOCALE_ID, useValue: 'es' }
   ],
   bootstrap: [AppComponent]
 })

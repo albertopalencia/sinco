@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
-import { ModalService } from '../models/modal.service';
-import { Respuesta } from '../models/respuesta';
-import { ProfesorService } from './profesor-service';
+import { ModalService } from '../services/modal.service';
+import { Respuesta } from '../models/respuesta.model';
+import { ProfesorService } from '../services/profesor.service';
 import { Profesor } from './profesor.model';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalService } from '../../models/modal.service';
+import { ModalService } from '../../services/modal.service';
 import { Profesor } from '../profesor.model';
 
 @Component({

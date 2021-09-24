@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Alumno } from './alumno';
-import { AlumnoService } from './alumno.service';
+import { Alumno } from '../models/alumno.model';
+import { AlumnoService } from '../services/alumno.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Respuesta } from '../models/respuesta';
+
 
 @Component({
   selector: 'app-form',

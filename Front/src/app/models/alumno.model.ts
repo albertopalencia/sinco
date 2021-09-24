@@ -1,4 +1,4 @@
-import { AsignaturaAlumnos } from "../asignaturas/models/asignatura-alumno";
+import { AsignaturaAlumnos } from "./asignatura-alumno.model";
 export class Alumno {
   id: number;
   identificacion: string;
