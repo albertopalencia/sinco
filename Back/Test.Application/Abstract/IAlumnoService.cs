@@ -10,7 +10,7 @@ namespace Test.Application.Abstract
 		Task<ResponseGenericDto<bool>> Crear(CrearAlumnoDto entidad);
 		Task<ResponseGenericDto<bool>> Actualizar(ActualizarAlumnoDto entidad);
 		Task<ResponseGenericDto<List<ListaAlumnoDto>>> Listar();
-		Task<ResponseGenericDto<ListaAlumnoDto>> ConsultaPor(int id);
+		Task<ResponseGenericDto<DetalleAlumnoDto>> ConsultaPor(int id);
 		Task<ResponseGenericDto<bool>> Eliminar(int id);
 	}
 }

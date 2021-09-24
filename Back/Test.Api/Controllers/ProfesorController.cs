@@ -45,7 +45,7 @@ namespace Test.Api.Controllers
 		/// <param name="id"></param>
 		/// <returns></returns>
 		[HttpGet("{id:int}")]
-		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ResponseGenericDto<ListaProfesorDto>))]
+		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ResponseGenericDto<DetalleProfesorDto>))]
 		[ProducesResponseType((int)HttpStatusCode.BadRequest)]
 		public async Task<IActionResult> ConsultaPor(int id)
 		{

@@ -8,7 +8,7 @@ namespace Test.Application.Abstract
 	public interface IProfesorService
 	{
 		Task<ResponseGenericDto<List<ListaProfesorDto>>> Listar();
-		Task<ResponseGenericDto<ListaProfesorDto>> ConsultaPor(int id);
+		Task<ResponseGenericDto<DetalleProfesorDto>> ConsultaPor(int id);
 		Task<ResponseGenericDto<bool>> Crear(CrearProfesorDto entidad);
 		Task<ResponseGenericDto<bool>> Actualizar(ActualizarProfesorDto entidad);
 	}

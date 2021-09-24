@@ -2,6 +2,7 @@
 {
 	public class ListaProfesorDto
 	{
+		public int Id { get; set; }
 		public string Identificacion { get; set; }
 		public string Nombre { get; set; }
 		public string Apellido { get; set; }
@@ -13,6 +14,7 @@
 		{
 			return new()
 			{
+				Id = entidad.Id,
 				Identificacion = entidad.Identificacion,
 				Nombre = entidad.Nombre,
 				Apellido = entidad.Apellido,

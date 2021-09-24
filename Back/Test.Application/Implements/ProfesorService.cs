@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Test.Application.Abstract;
 using Test.Domain.DTO;
+using Test.Domain.DTO.Alumno;
 using Test.Domain.DTO.Profesor;
 using Test.Domain.Entities;
 using Test.Infrastructure.Interfaces.Repositories;
@@ -26,15 +27,16 @@ namespace Test.Application.Implements
 			};
 		}
 
-		public async Task<ResponseGenericDto<ListaProfesorDto>> ConsultaPor(int id)
+		public async Task<ResponseGenericDto<DetalleProfesorDto>> ConsultaPor(int id)
 		{
-			var profesor = await _repositorio.FirstOrDefaultAsync(f => f.Id == id);
-			return new ResponseGenericDto<ListaProfesorDto>
+			var profesor = await _repositorio.BuscarProfesorPorId(id);
+			return new ResponseGenericDto<DetalleProfesorDto>
 			{
 				Success = true,
 				Result = profesor
 			};
 		}
+		 
 
 		public async Task<ResponseGenericDto<bool>> Crear(CrearProfesorDto entidad)
 		{
