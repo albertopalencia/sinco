@@ -51,7 +51,7 @@ namespace Test.Infrastructure.Extensions
 		{
 			services.AddTransient<IAlumnoRepository, AlumnoRepository>();
 			services.AddTransient<IAsignaturaProfesorRepository, AsignaturaProfesorRepository>();
-			services.AddTransient<IAsignaturasAlumnoRepository, AsignaturasAlumnoRepository>();
+			services.AddTransient<IAsignaturasAlumnoRepository, AsignaturaAlumnoRepository>();
 			services.AddTransient<IProfesorRepository, ProfesorRepository>();
 			services.AddTransient<IAsignaturaRepository, AsignaturaRepository>();
 			return services;

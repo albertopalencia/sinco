@@ -113,6 +113,8 @@
 			services.AddTransient<IAlumnoService, AlumnoService>();
 			services.AddTransient<IAsignaturaService, AsignaturaService>();
 			services.AddTransient<IProfesorService, ProfesorService>();
+			services.AddTransient<IAsignaturaProfesorService, AsignaturaProfesorService>();
+			services.AddTransient<IAsignaturaAlumnoService, AsignaturaAlumnoService>();
 		}
 	}
 }

@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Query;
 using Test.Application.Abstract;
 using Test.Domain.DTO;
 using Test.Domain.DTO.Asignatura;
@@ -19,12 +22,22 @@ namespace Test.Application.Implements
 		}
 
 		public async Task<ResponseGenericDto<List<ListaAsignaturaDto>>> Listar()
-		{
+		{ 
 			var asignaturas = await _repositorio.GetAllAsync();
 			return new ResponseGenericDto<List<ListaAsignaturaDto>>
 			{
 				Success = true,
 				Result = asignaturas.Select<Asignatura, ListaAsignaturaDto>(s => s).ToList()
+			};
+		}
+
+		public async Task<ResponseGenericDto<List<AsignaturaDisponibleDto>>> ListaDisponibles()
+		{
+			var asignaturas = await _repositorio.AsignaturaDisponibles();
+			return new ResponseGenericDto<List<AsignaturaDisponibleDto>>
+			{
+				Success = true,
+				Result = asignaturas.Select<Asignatura, AsignaturaDisponibleDto>(s => s).ToList()
 			};
 		}
 
