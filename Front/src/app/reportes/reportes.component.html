@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-header  bg-info">
+    <h5 class="card-title text-white">Reporte Calificaciones Estudiantes</h5>
+  </div>
+  <div class="card-body">
+    <div class="my-2 text-left">
+      <button class="btn btn-sm btn-info" type="button" (click)="exportarExcel()">
+        <i class="fa fa-download"></i> Descargar
+      </button>
+    </div>
+    <div *ngIf="data?.length == 0" class="alert alert-info">
+      No hay calificaciones para los estudiantes
+    </div>
+    <div class="table-responsive" *ngIf="data?.length>0">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Año académico</th>
+            <th>Identificación Alumno</th>
+            <th>Nombre  Alumno</th>
+            <th>Código  Materia</th>
+            <th>Nombre    Materia</th>
+            <th>Identificación  del profesor</th>
+            <th>Nombre del   profesor</th>
+            <th>Calificación   final</th>
+            <th>Aprobó </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of  data">
+            <td>{{ item.anioAcademico }}</td>
+            <td>{{ item.identificacionAlumno }}</td>
+            <td>{{ item.nombreAlumno }}</td>
+            <td>{{ item.codigoMateria }}</td>
+            <td>{{ item.nombreMateria }}</td>
+            <td>{{ item.identificacionProfesor }}</td>
+            <td>{{ item.nombreProfesor }}</td>
+            <td>{{ item.calificacionFinal }}</td>
+            <td>{{ item.aprobo }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

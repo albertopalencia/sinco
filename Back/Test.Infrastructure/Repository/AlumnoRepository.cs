@@ -1,4 +1,10 @@
-﻿using Test.Domain.Entities;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
+using Test.Domain.DTO.Alumno;
+using Test.Domain.Entities;
 using Test.Infrastructure.DataAccess;
 using Test.Infrastructure.Interfaces.Repositories;
 
@@ -14,5 +20,14 @@ namespace Test.Infrastructure.Repository
 		public AlumnoRepository(TestContext context) : base(context)
 		{
 		}
+
+		public async Task<DetalleAlumnoDto> BuscarAlumnoPorId(int id)
+		{
+			return  await Entities.Where(s => s.Id == id)
+								  .Include(i => i.AsignaturasAlumno)
+								  .ThenInclude(ii=> ii.IdAsignaturaNavigation)
+								  .FirstOrDefaultAsync();
+		}
+		 
 	}
 }

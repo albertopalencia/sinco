@@ -1,0 +1,71 @@
+<detalle-alumno *ngIf="seleccionado" [alumno]="seleccionado"></detalle-alumno>
+<asignatura-alumno *ngIf="asignaturaAlumno" [alumno]="asignaturaAlumno" [asignatura] = "asignaturas" ></asignatura-alumno>
+
+<div class="card">
+  <div class="card-header  bg-info">
+    <h5 class="card-title text-white">Alumnos</h5>
+  </div>
+  <div class="card-body">
+    <div class="my-2 text-left">
+      <button class="btn btn-sm btn-info" type="button" [routerLink]="['/alumnos/form']">
+        <i class="fa fa-plus"></i> Nuevo
+      </button>
+    </div>
+    <div *ngIf="alumnos?.length == 0" class="alert alert-info">
+      No hay registros en la base de datos!
+    </div>
+    <div class="table-responsive" *ngIf="alumnos?.length>0">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Identificación</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Edad</th>
+            <th>Dirección</th>
+            <th>Telefono</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let alumno of  alumnos">
+            <td>{{ alumno.identificacion }}</td>
+            <td>{{ alumno.nombre }}</td>
+            <td>{{ alumno.apellido }}</td>
+            <td>{{ alumno.edad }}</td>
+            <td>{{ alumno.direccion }}</td>
+            <td>{{ alumno.telefono }}</td>
+            <td>
+              <button  class="alert alert-info my-4" type="button" name="asignar"
+                title="asignar materia" class="btn btn-success btn-sm"
+                (click)="asignaturaAbrilModal(alumno)">
+                <i class="fa fa-plus fa-fw"></i>
+              </button>
+            </td>
+            <td>
+              <button type="button" name="editar" title="detalle" class="btn btn-warning btn-sm"
+                (click)="abrirModal(alumno)">
+                <i class="fa fa-eye fa-fw"></i>
+              </button>
+            </td>
+            <td>
+              <button type="button" name="editar" [routerLink]="['/alumnos/form', alumno.id]" title="editar"
+                class="btn btn-info btn-sm">
+                <i class="fa fa-pencil fa-fw"></i>
+              </button>
+            </td>
+            <td>
+              <button type="button" name="eliminar" (click)='delete(alumno)' class="btn btn-danger btn-sm"
+                title="eliminar" >
+                <i class="fa fa-trash-o"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

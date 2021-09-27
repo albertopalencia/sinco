@@ -11,7 +11,7 @@ namespace Test.Api.Controllers
 	/// <summary>
 	///
 	/// </summary>
-	[Route("api/[controller]")]
+	[Route("api/asignatura")]
 	[ApiController]
 	public class AsignaturaController : ControllerBase
 	{
@@ -38,6 +38,20 @@ namespace Test.Api.Controllers
 			var result = await _servicio.Listar();
 			return Ok(result);
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		[HttpGet("disponibles")]
+		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ResponseGenericDto<List<AsignaturaDisponibleDto>>))]
+		[ProducesResponseType((int)HttpStatusCode.BadRequest)]
+		public async Task<IActionResult> AsignaturasDisponibles()
+		{
+			var result = await _servicio.ListaDisponibles();
+			return Ok(result);
+		}
+
 
 		/// <summary>
 		/// Obtiene la asignatura

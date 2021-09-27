@@ -11,7 +11,7 @@ namespace Test.Api.Controllers
 	/// <summary>
 	/// 
 	/// </summary>
-	[Route("api/[controller]")]
+	[Route("api/alumno")]
 	[ApiController]
 	public class AlumnoController :   ControllerBase
 	{
@@ -44,7 +44,7 @@ namespace Test.Api.Controllers
 		/// </summary>
 		/// <returns></returns>
 		[HttpGet("{id:int}")]
-		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ResponseGenericDto<ListaAlumnoDto>))]
+		[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ResponseGenericDto<DetalleAlumnoDto>))]
 		[ProducesResponseType((int)HttpStatusCode.BadRequest)]
 		public async Task<IActionResult> ConsultaPor(int id)
 		{
@@ -85,7 +85,7 @@ namespace Test.Api.Controllers
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		[HttpDelete]
+		[HttpDelete("{id:int}")]
 		[ProducesResponseType((int)HttpStatusCode.Created, Type = typeof(ResponseGenericDto<bool>))]
 		[ProducesResponseType((int)HttpStatusCode.BadRequest)]
 		public async Task<IActionResult> Eliminar(int id)

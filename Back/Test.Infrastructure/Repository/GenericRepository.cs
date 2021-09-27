@@ -397,10 +397,9 @@ namespace Test.Infrastructure.Repository
 		/// <param name="t">The t.</param>
 		public virtual void Remove(T t)
 		{
-			_context.Entry(t).State = EntityState.Deleted;
-			_context.Remove(t);
+			_context.Entry(t).State = EntityState.Deleted; 
 			SaveChanges();
-		}
+		} 
 
 		/// <summary>
 		/// Removes the specified t.
