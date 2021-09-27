@@ -27,6 +27,8 @@ import { FormAsignaturaComponent } from './asignaturas/form-asignatura/form-asig
 import { AsignaturaAlumnoComponent } from './asignatura-alumno/asignatura-alumno.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { AsignaturaAlumnoService } from './services/asignatura-alumno.service';
+import { AsignaturaProfesorService } from './services/asignatura-profesor.service';
+import { AsignaturaProfesorComponent } from './profesores/asignatura-profesor/asignatura-profesor.component';
 
 
 registerLocaleData(localeES, 'es');
@@ -59,6 +61,7 @@ const routes: Routes = [
     AsignaturasComponent,
     FormAsignaturaComponent,
     AsignaturaAlumnoComponent,
+    AsignaturaProfesorComponent,
     ReportesComponent
   ],
   imports: [
@@ -74,6 +77,7 @@ const routes: Routes = [
     ProfesorService,
     AsignaturaService,
     AsignaturaAlumnoService,
+    AsignaturaProfesorService,
     { provide: LOCALE_ID, useValue: 'es' }
   ],
   bootstrap: [AppComponent]

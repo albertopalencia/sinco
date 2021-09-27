@@ -60,7 +60,6 @@ export class ProfesoresComponent implements OnInit {
 
   abrirModal(profesor: Profesor) {
     this.seleccionado = profesor;
-    console.log(profesor);
     this.modalService.abrirModal();
   }
 
