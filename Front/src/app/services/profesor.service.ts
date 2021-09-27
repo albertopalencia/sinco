@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { Respuesta } from '../models/respuesta.model';
 import { catchError, map } from 'rxjs/operators';
 import { URL_BACKEND } from '../config/config';
-import { Profesor } from '../profesores/profesor.model';
+import { Profesor } from '../models/profesor.model';
 
 @Injectable({providedIn: 'root'})
 export class ProfesorService {

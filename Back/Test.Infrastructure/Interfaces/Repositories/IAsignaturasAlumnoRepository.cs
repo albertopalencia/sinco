@@ -2,7 +2,7 @@
 
 namespace Test.Infrastructure.Interfaces.Repositories
 {
-	public interface IAsignaturasAlumnoRepository : ICreateRepository<AsignaturaAlumno>
+	public interface IAsignaturasAlumnoRepository : IReadRepository<AsignaturaAlumno>, ICreateRepository<AsignaturaAlumno>
 	{
 		
 	}

@@ -25,6 +25,8 @@ import { FormProfesorComponent } from './profesores/form-profesor/form-profesor.
 import { AsignaturasComponent } from './asignaturas/asignaturas.component';
 import { FormAsignaturaComponent } from './asignaturas/form-asignatura/form-asignatura.component';
 import { AsignaturaAlumnoComponent } from './asignatura-alumno/asignatura-alumno.component';
+import { ReportesComponent } from './reportes/reportes.component';
+import { AsignaturaAlumnoService } from './services/asignatura-alumno.service';
 
 
 registerLocaleData(localeES, 'es');
@@ -40,6 +42,7 @@ const routes: Routes = [
   { path: 'asignaturas', component: AsignaturasComponent },
   { path: 'asignaturas/form', component: FormAsignaturaComponent},
   { path: 'asignaturas/form/:id', component: FormAsignaturaComponent},
+  { path: 'reportes', component: ReportesComponent },
 ];
 
 @NgModule({
@@ -55,7 +58,8 @@ const routes: Routes = [
     FormProfesorComponent,
     AsignaturasComponent,
     FormAsignaturaComponent,
-    AsignaturaAlumnoComponent
+    AsignaturaAlumnoComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +73,7 @@ const routes: Routes = [
     AlumnoService,
     ProfesorService,
     AsignaturaService,
+    AsignaturaAlumnoService,
     { provide: LOCALE_ID, useValue: 'es' }
   ],
   bootstrap: [AppComponent]

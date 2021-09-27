@@ -1,4 +1,5 @@
-﻿using Test.Common.Enumerations;
+﻿using Test.Common;
+using Test.Common.Enumerations;
 using Test.Infrastructure.DataAccess;
 using Test.Infrastructure.Interfaces.Repositories;
 using Test.Infrastructure.Repository;
@@ -28,6 +29,8 @@ namespace Test.Infrastructure.Extensions
 		{
 			var connectionString = configuration[ConnectionString.Test.Name];
 
+			CommonHelpers.Instance.CadenaConexion = connectionString;
+
 			services.AddDbContext<TestContext>(options =>
 				 options.UseSqlServer(connectionString,
 				   sqlOptions =>
@@ -54,6 +57,7 @@ namespace Test.Infrastructure.Extensions
 			services.AddTransient<IAsignaturasAlumnoRepository, AsignaturaAlumnoRepository>();
 			services.AddTransient<IProfesorRepository, ProfesorRepository>();
 			services.AddTransient<IAsignaturaRepository, AsignaturaRepository>();
+			services.AddTransient<IReporteRepository, ReporteRepository>();
 			return services;
 		}
 

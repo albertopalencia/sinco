@@ -5,7 +5,7 @@
 		public int IdAsignatura { get; set; }
 		public string Nombre { get; set; }
 		public short AnioLectivo { get; set; }
-		public byte Calificacion { get; set; }
+		public decimal Calificacion { get; set; }
 
 		public static implicit operator AsignaturaAlumnoDto(Entities.AsignaturaAlumno entidad)
 		{

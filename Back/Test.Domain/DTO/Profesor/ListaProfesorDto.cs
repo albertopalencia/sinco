@@ -1,4 +1,8 @@
-﻿namespace Test.Domain.DTO.Profesor
+﻿using System.Collections.Generic;
+using System.Linq;
+using Test.Domain.DTO.AsignaturaProfesor;
+
+namespace Test.Domain.DTO.Profesor
 {
 	public class ListaProfesorDto
 	{
@@ -10,9 +14,12 @@
 		public string Direccion { get; set; }
 		public string Telefono { get; set; }
 
+		public List<AsignaturaProfesorDto> Asignaturas { get; set; }
+
 		public static implicit operator ListaProfesorDto(Entities.Profesor entidad)
 		{
-			return new()
+			var listaAsignaturas = entidad.AsiganturaProfesor.Select(asignatura => (AsignaturaProfesorDto)asignatura).ToList();
+			return new ListaProfesorDto()
 			{
 				Id = entidad.Id,
 				Identificacion = entidad.Identificacion,
@@ -20,7 +27,8 @@
 				Apellido = entidad.Apellido,
 				Edad = entidad.Edad,
 				Direccion = entidad.Direccion,
-				Telefono = entidad.Telefono
+				Telefono = entidad.Telefono,
+				Asignaturas = listaAsignaturas
 			};
 		}
 	}

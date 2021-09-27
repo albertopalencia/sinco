@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalService } from '../../services/modal.service';
-import { Profesor } from '../profesor.model';
+import { Profesor } from '../../models/profesor.model';
 
 @Component({
   selector: 'detalle-profesor',
