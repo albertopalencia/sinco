@@ -5,7 +5,7 @@
 		public int IdAlumno { get; set; }
 		public int IdAsignatura { get; set; }
 		public short AnioLectivo { get; set; }
-		public byte Calificacion { get; set; }
+		public decimal Calificacion { get; set; }
 
 		public static implicit operator Entities.AsignaturaAlumno(CrearAsignaturaAlumnoDto entidad)
 		{

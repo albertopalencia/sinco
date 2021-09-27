@@ -1,5 +1,6 @@
-import { AsignaturaAlumnos } from "../asignaturas/models/asignatura-alumno";
-export class Alumno {
+import { Asignatura } from "./asignatura.model";
+
+export class Profesor {
   id: number;
   identificacion: string;
   nombre: string;
@@ -7,5 +8,5 @@ export class Alumno {
   edad: number;
   direccion: string;
   telefono: string;
-  asignaturas: AsignaturaAlumnos[];
+  asignaturas: Asignatura[];
 }

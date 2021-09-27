@@ -115,6 +115,7 @@
 			services.AddTransient<IProfesorService, ProfesorService>();
 			services.AddTransient<IAsignaturaProfesorService, AsignaturaProfesorService>();
 			services.AddTransient<IAsignaturaAlumnoService, AsignaturaAlumnoService>();
+			services.AddTransient<IReporteService, ReporteService>();
 		}
 	}
 }

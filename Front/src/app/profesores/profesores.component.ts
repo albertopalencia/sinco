@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
-import { ModalService } from '../models/modal.service';
-import { Respuesta } from '../models/respuesta';
-import { ProfesorService } from './profesor-service';
-import { Profesor } from './profesor.model';
+import { ModalService } from '../services/modal.service';
+import { Respuesta } from '../models/respuesta.model';
+import { ProfesorService } from '../services/profesor.service';
+import { Profesor } from '../models/profesor.model';
+
 
 @Component({
   selector: 'app-profesores',
@@ -59,6 +60,7 @@ export class ProfesoresComponent implements OnInit {
 
   abrirModal(profesor: Profesor) {
     this.seleccionado = profesor;
+    console.log(profesor);
     this.modalService.abrirModal();
   }
 

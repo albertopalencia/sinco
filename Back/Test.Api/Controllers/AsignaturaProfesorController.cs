@@ -1,11 +1,9 @@
-﻿using System.Net;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Net;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Test.Application.Abstract;
 using Test.Domain.DTO;
-using Test.Domain.DTO.Asignatura;
 using Test.Domain.DTO.AsignaturaProfesor;
-using Test.Infrastructure.Interfaces.Repositories;
 
 namespace Test.Api.Controllers
 {

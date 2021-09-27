@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Test.Application.Abstract;
 using Test.Domain.DTO;
 using Test.Domain.DTO.Alumno;
@@ -19,7 +20,9 @@ namespace Test.Application.Implements
 		}
 		public async Task<ResponseGenericDto<List<ListaProfesorDto>>> Listar()
 		{
-			var profesores = await _repositorio.GetAllAsync();
+
+			var profesores = await _repositorio.GetAllAsync(include: i=> i.Include(s=> s.AsiganturaProfesor).ThenInclude(ii=> ii.IdAsignaturaNavigation));
+				
 			return new ResponseGenericDto<List<ListaProfesorDto>>
 			{
 				Success = true,

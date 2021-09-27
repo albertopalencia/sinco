@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Alumno } from './alumno';
-import { AlumnoService } from './alumno.service';
+import { Alumno } from '../models/alumno.model';
+import { AlumnoService } from '../services/alumno.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Respuesta } from '../models/respuesta';
+
 
 @Component({
   selector: 'app-form',
@@ -83,8 +83,8 @@ export class FormComponent implements OnInit {
           swal('Nuevo Alumno', `El alumno ${alumno.nombre} ha sido creado con éxito`, 'success');
         },
         err => {
-          this.errores = err.error.errors as string[];
-          console.error(err.error.errors);
+          this.errores = err.error as string[];
+          console.error(err.error);
         }
       );
 
@@ -101,8 +101,8 @@ export class FormComponent implements OnInit {
           swal('Alumno Actualizado', `Se actualizo el alumno: ${alumno.nombre}`, 'success');
         },
         err => {
-          this.errores = err.error.errors as string[];
-          console.error(err.error.errors);
+          this.errores = err.error as string[];
+          console.error(err.error);
         }
       )
   }
@@ -110,11 +110,5 @@ export class FormComponent implements OnInit {
   regresar(): void {
     this.router.navigate(['/alumnos']);
   }
-
-
-  // compararRegion(regionAlumno: Region, regionAsignado: Region) {
-  //   return (regionAlumno === null || regionAlumno === undefined) || (regionAsignado === null || regionAsignado === undefined) ? false :
-  //     regionAlumno.id === regionAsignado.id;
-  // }
 
 }

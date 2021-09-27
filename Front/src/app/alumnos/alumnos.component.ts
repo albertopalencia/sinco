@@ -1,9 +1,11 @@
-import { ModalService } from '../models/modal.service';
+import { ModalService } from '../services/modal.service';
 import { Component, OnInit } from '@angular/core';
-import { Alumno } from './alumno';
-import { AlumnoService } from './alumno.service';
+import { Alumno } from '../models/alumno.model';
+import { AlumnoService } from '../services/alumno.service';
 import swal from 'sweetalert2';
-import { Respuesta } from '../models/respuesta';
+import { Respuesta } from '../models/respuesta.model';
+import { Asignatura } from '../models/asignatura.model';
+import { AsignaturaService } from '../services/asignatura.service';
 
 @Component({
   selector: 'app-alumnos',
@@ -13,15 +15,26 @@ export class AlumnosComponent implements OnInit {
 
   alumnos: Alumno[];
   seleccionado: Alumno;
+  asignaturaAlumno: Alumno;
+  asignaturas: Asignatura[];
 
-  constructor(private alumnoService: AlumnoService, private modalService : ModalService  ) { }
+  constructor(private alumnoService: AlumnoService, private modalService: ModalService,
+    private modalAsignaturaService: ModalService, private asignaturaService: AsignaturaService) { }
 
   ngOnInit() {
 
-     this.alumnoService.getAlumnos()
-     .subscribe((response: { result: Alumno[]; }) => {
-         this.alumnos = response.result as Alumno[];
-     });
+    this.alumnoService.getAlumnos()
+      .subscribe((response: { result: Alumno[]; }) => {
+        this.alumnos = response.result as Alumno[];
+        console.log(response.result);
+      });
+  }
+
+  cargarAsignaturas() {
+    this.asignaturaService.getAsignaturas()
+      .subscribe((response: { result: Asignatura[]; }) => {
+        this.asignaturas = response.result as Asignatura[];
+      });
   }
 
   delete(alumno: Alumno): void {
@@ -50,11 +63,11 @@ export class AlumnosComponent implements OnInit {
                 `Alumno ${alumno.nombre} eliminado con éxito.`,
                 'success'
               )
-            }else {
+            } else {
               swal(
                 'Alerta!',
                 `${respuesta.message}`,
-                'warning' )
+                'warning')
             }
 
           }
@@ -66,8 +79,17 @@ export class AlumnosComponent implements OnInit {
 
   abrirModal(alumno: Alumno) {
     this.seleccionado = alumno;
-    console.log(alumno);
+    this.asignaturaAlumno = null;
     this.modalService.abrirModal();
   }
 
+  asignaturaAbrilModal(alumno: Alumno) {
+    this.asignaturaAlumno = alumno;
+    this.seleccionado = null;
+    this.cargarAsignaturas();
+    this.modalAsignaturaService.abrirModal();
+  }
+
 }
+
+
