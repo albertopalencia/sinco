@@ -1,4 +1,4 @@
-<detalle-profesor *ngIf="seleccionado" [profesor]="seleccionado"></detalle-profesor>
+<asignatura-profesor *ngIf="seleccionado" [profesor]="seleccionado"></asignatura-profesor>
 
 <div class="card">
   <div class="card-header  bg-info">
@@ -24,6 +24,7 @@
             <th>Edad</th>
             <th>Dirección</th>
             <th>Telefono</th>
+            <th>Asignatura</th>
             <th></th>
             <th></th>
           </tr>
@@ -36,11 +37,20 @@
             <td>{{ profesor.edad }}</td>
             <td>{{ profesor.direccion }}</td>
             <td>{{ profesor.telefono }}</td>
+            <td *ngIf="profesor.asignaturas.length == 0 else elseBlock">
+            </td>
+            <ng-template #elseBlock>
+            <td *ngFor="let asignatura of profesor.asignaturas">
+              {{ asignatura.nombre }}
+            </td>
+            </ng-template>
             <td>
-              <button type="button" name="editar"  title="detalle"
-              class="btn btn-warning btn-sm" (click)="abrirModal(profesor)">
-              <i class="fa fa-eye fa-fw"></i>
-            </button>
+              <button  class="alert alert-info my-4" type="button" name="asignar"
+                title="asignar materia" class="btn btn-success btn-sm"
+                [disabled] ="profesor.asignaturas.length > 0"
+                (click)="abrirModal(profesor)">
+                <i class="fa fa-plus fa-fw"></i>
+              </button>
             </td>
             <td >
               <button type="button" name="editar" [routerLink]="['/profesores/form', profesor.id]" title="editar"

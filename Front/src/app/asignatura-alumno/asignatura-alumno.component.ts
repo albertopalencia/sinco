@@ -59,7 +59,7 @@ export class AsignaturaAlumnoComponent implements OnInit {
 
   guardar(){
     let entidad = Object.assign({}, this.formRegistro.value);
- //   entidad.idAlumno = this.alumno.id;
+    entidad.idAlumno = this.alumno.id;
     entidad.anioLectivo = entidad.anio;
     this.asignaturaAlumnoService.create(entidad)
     .subscribe(
