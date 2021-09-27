@@ -6,12 +6,9 @@ import { Asignatura } from './../../models/asignatura.model';
 import { Profesor } from './../../models/profesor.model';
 import { Component, Input, OnInit } from '@angular/core';
 
-
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-
 
 
 @Component({
